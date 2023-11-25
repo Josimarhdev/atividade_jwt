@@ -2,6 +2,8 @@ import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { Login } from 'src/app/models/login';
 import { LoginService } from 'src/app/services/login.service';
+import { User } from 'src/app/models/user';
+
 
 @Component({
   selector: 'app-login',
@@ -10,6 +12,8 @@ import { LoginService } from 'src/app/services/login.service';
 })
 export class LoginComponent {
 
+
+  usuario: User = new User();
   login: Login = new Login();
   roteador = inject(Router);
   loginService = inject(LoginService);
@@ -36,14 +40,9 @@ export class LoginComponent {
 
 
 
-    //implementar a requisição aqui e colocar o token no localstorage
-
-    if (this.login.username == 'admin' && this.login.password == 'admin')
-      this.roteador.navigate(['admin/produtos']);
-    else
-      alert('login ou senha incorretos');
-
   }
+
+  
 
 
 }
